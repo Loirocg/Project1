@@ -224,7 +224,7 @@ function validsignup(){
 function detectCookie(){
 	var user = getCookie();
 	if (user != "") {
-		//alert("Bienvenido!");
+		alert("Bienvenido!");
 	} else {
 		alert("No ha siniciado sesión. Por favor, introduce tus datos");
 		window.location.assign("default.html");
