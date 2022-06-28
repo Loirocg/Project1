@@ -224,9 +224,9 @@ function validsignup(){
 function detectCookie(){
 	var user = getCookie();
 	if (user != "") {
-		alert("Hola");
+		//alert("Bienvenido!");
 	} else {
-		alert("Hola");
+		alert("No ha siniciado sesión. Por favor, introduce tus datos");
 		window.location.assign("default.html");
 	}
 }
@@ -236,7 +236,6 @@ function getCookie() {
     let name = "username=";
   let decodedCookie = decodeURIComponent(document.cookie);
   let ca = decodedCookie.split(';');
-  alert("Esto es ");
   for(let i = 0; i <ca.length; i++) {
     let c = ca[i];
     while (c.charAt(0) == ' ') {
