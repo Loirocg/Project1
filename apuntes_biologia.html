@@ -8,17 +8,19 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
     <!--JS-->
-    <script src="js/apuntes.js"></script>
+    <script src="js/checkcookie.js"></script>
     <!--CSS-->
     <link rel="stylesheet" href="css/apuntes.css">
-    <title>Apuntes</title>
+    <title>Biología</title>
 </head>
-<body onload="detectCookie()">
+<body>
     <div id="navegador">
         <ul>
+            <li><a href="Home.html">Home</a></li>
             <li><a href="Apunts.html">Apunts</a></li>
-            <li><a href="Peticion.html">Petición</a></li>
-            <li><a href="default.html">Logout</a></li>
+            <li><a href="Micuenta.html">Mi cuenta</a></li>
+            <li><a href="#">Help(?)</a></li>
+            <li><a href="Login.html">Logout</a></li>
         </ul>
     </div><br>
     <div class="containerf">
@@ -48,7 +50,7 @@
           <div class="panel">
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
             <ul>
-              <li><a href="C1/Oriol_Camps_Codi_C#_Menu_Palindrom_CamelCase.cs" rel="noopener" target="_blank">Ejercicio Palindromo/CamelCase</a></li>
+              <li>Something</li>
               <li>Something</li>
               <li>Something</li>
               <li>Something</li>
@@ -68,6 +70,21 @@
         </div>
 </div>
 
-<script src="js/Projecte1.js"></script>
+<script>
+  var acc = document.getElementsByClassName("topics_container_btn");
+  var i;
+
+  for (i = 0; i < acc.length; i++) {
+    acc[i].addEventListener("click", function() {
+      this.classList.toggle("active");
+      var panel = this.nextElementSibling;
+        if (panel.style.maxHeight) {
+          panel.style.maxHeight = null;
+        } else {
+          panel.style.maxHeight = panel.scrollHeight + "px";
+        } 
+    });
+  }
+</script>
 </body>
 </html>

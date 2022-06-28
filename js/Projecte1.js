@@ -22,6 +22,42 @@ var acc = document.getElementsByClassName("topics_container_btn");
     });
   }
 
+//Alex peticio
+function CustomAlert(){
+	this.alert = function(message,title){
+	  document.body.innerHTML = document.body.innerHTML + '<div id="dialogoverlay"></div><div id="dialogbox" class="slit-in-vertical"><div><div id="dialogboxhead"></div><div id="dialogboxbody"></div><div id="dialogboxfoot"></div></div></div>';
+  
+	  let dialogoverlay = document.getElementById('dialogoverlay');
+	  let dialogbox = document.getElementById('dialogbox');
+	  
+	  let winH = window.innerHeight;
+	  dialogoverlay.style.height = winH+"px";
+	  
+	  dialogbox.style.top = "100px";
+  
+	  dialogoverlay.style.display = "block";
+	  dialogbox.style.display = "block";
+	  
+	  document.getElementById('dialogboxhead').style.display = 'block';
+  
+	  if(typeof title === 'undefined') {
+		document.getElementById('dialogboxhead').style.display = 'none';
+	  } else {
+		document.getElementById('dialogboxhead').innerHTML = '<i class="fa fa-exclamation-circle" aria-hidden="true"></i> '+ title;
+	  }
+	  document.getElementById('dialogboxbody').innerHTML = message;
+	  document.getElementById('dialogboxfoot').innerHTML = '<button class="pure-material-button-contained active" onclick="customAlert.ok()">OK</button>';
+	}
+	
+	this.ok = function(){
+	  document.getElementById('dialogbox').style.display = "none";
+	  document.getElementById('dialogoverlay').style.display = "none";
+	}
+  }
+  
+  let customAlert = new CustomAlert();
+
+
 //Inici de sessio
 function validlogin(){
 	contrasena1 = document.getElementById("password1").value;
@@ -45,7 +81,7 @@ function validlogin(){
 	}
 	
 	//Validacio contrasenya1
-	if(contrasena1 === "")
+	if(contrasena1 == "")
 	{
 		document.getElementById("passwordinc").innerHTML = "Contraseña introducida incorrecta";
 		document.getElementById("passwordinc").style.color = "red";
@@ -65,7 +101,7 @@ function validlogin(){
 
 
 		//Validacio contrasenya2
-		if(contrasena2 === "")
+		if(contrasena2 == "")
 		{
 			document.getElementById("passwordinc").innerHTML = "La contraseña no coincide";
 			document.getElementById("passwordinc").style.color = "red";
@@ -105,12 +141,12 @@ function validlogin(){
 		mailok = false;
 	}
 
-	if(contrasena1ok === true && contrasena2ok === true && mailok === true)
+	if(contrasena1ok == true && contrasena2ok == true && mailok == true)
 	{
 		document.cookie = "username = John Doe";
 		galeta = document.cookie;
 		window.location.assign("Apunts.html");
-	}
+	//}
 }
 
 
@@ -142,7 +178,7 @@ function validsignup(){
 	}
 	
 	//Validacio contrasenya1
-	if(contrasena1 === "")
+	if(contrasena1 == "")
 	{
 		document.getElementById("passwordinc").innerHTML = "Contraseña introducida incorrecta";
 		document.getElementById("passwordinc").style.color = "red";
@@ -162,7 +198,7 @@ function validsignup(){
 
 
 		//Validacio contrasenya2
-		if(contrasena2 === "")
+		if(contrasena2 == "")
 		{
 			document.getElementById("passwordinc").innerHTML = "La contraseña no coincide";
 			document.getElementById("passwordinc").style.color = "red";
@@ -224,9 +260,9 @@ function validsignup(){
 function detectCookie(){
 	var user = getCookie();
 	if (user != "") {
-		alert("Hola");
+		alert("Bienvenido!");
 	} else {
-		alert("Hola");
+		alert("No ha siniciado sesión. Por favor, introduce tus datos");
 		window.location.assign("default.html");
 	}
 }
@@ -236,7 +272,6 @@ function getCookie() {
     let name = "username=";
   let decodedCookie = decodeURIComponent(document.cookie);
   let ca = decodedCookie.split(';');
-  alert("Esto es ");
   for(let i = 0; i <ca.length; i++) {
     let c = ca[i];
     while (c.charAt(0) == ' ') {
