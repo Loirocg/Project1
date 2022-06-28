@@ -146,7 +146,7 @@ function validlogin(){
 		document.cookie = "username = John Doe";
 		galeta = document.cookie;
 		window.location.assign("Apunts.html");
-	//}
+	}
 }
 
 
